@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import style from "./App.module.scss";
+import Heading from "./containers/Heading/Heading";
+import SearchBar from "./components/SearchBar/SearchBar";
+import BookList from "./containers/BookList/BookList";
+import { useState, useEffect } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const handleDisplay = (searchInput) => {
+        setSearch(searchInput);
+    };
+
+    const [search, setSearch] = useState("");
+
+    return (
+        <section className={style.App}>
+            <header>
+                <Heading />
+                <nav>
+                    <SearchBar searchFunc={handleDisplay} />
+                </nav>
+            </header>
+            <main>
+                <BookList searchInput={search} />
+            </main>
+        </section>
+    );
 }
 
 export default App;

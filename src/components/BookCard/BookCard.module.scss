@@ -1,0 +1,52 @@
+.BookCard {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    &__image {
+        max-width: 200px;
+        resize: none;
+    }
+    &__btn {
+        height: 30px;
+        width: 30px;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.BookCardPopout {
+    @extend .BookCard;
+    position: fixed;
+    top: 1%;
+    left: 20%;
+    right: 20%;
+    bottom: 1%;
+    z-index: 1000;
+    background-color: white;
+    &:hover {
+        cursor: default;
+    }
+    &__btn {
+        position: fixed;
+        top: 3%;
+        right: 23%;
+        height: 30px;
+        width: 30px;
+    }
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        z-index: 1000;
+    }
+}
